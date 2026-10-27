@@ -56,6 +56,8 @@ body { margin: 0 !important; padding-top: 0 !important; }
 .pp-nav .pp-links { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
 .pp-nav .pp-links a { padding: 16px 10px 14px; white-space: nowrap; border-bottom: 2px solid transparent; }
 .pp-nav .pp-links a:hover { color: var(--n-ink); }
+.pp-nav .pp-links a.pp-me { margin-left: 14px; padding-left: 14px; border-left: 1px solid var(--n-rule); border-bottom-color: transparent;
+  padding-top: 8px; padding-bottom: 6px; margin-top: 8px; margin-bottom: 8px; font-weight: 400; }
 .pp-nav .pp-links a[aria-current="page"] { color: var(--n-on); border-bottom-color: var(--n-on); }
 .pp-nav a:focus-visible { outline: 2px solid #2a78d6; outline-offset: -2px; }
 @media (max-width: 640px) {
@@ -63,10 +65,13 @@ body { margin: 0 !important; padding-top: 0 !important; }
   .pp-nav .pp-home { width: 100%; font-size: 16px; }
   .pp-nav .pp-links { margin: 0 -10px; }
   .pp-nav .pp-links a { padding: 10px 10px 9px; font-size: 13.5px; }
+  .pp-nav .pp-in { position: relative; }
+  .pp-nav .pp-links a.pp-me { position: absolute; top: 10px; right: max(16px, env(safe-area-inset-right, 0px));
+    margin: 0; padding: 2px 0; border: 0; font-size: 13px; }
 }
 </style>
 </head><body>
-<nav class="pp-nav" aria-label="Site"><div class="pp-in"><a class="pp-home" href="./" aria-current="page">Platform Rules on Hate</a><div class="pp-links"><a href="hate_definitions.html">Defining hate</a><a href="counterspeech.html">Counterspeech</a><a href="arena.html">Would it stay up?</a></div></div></nav>
+<nav class="pp-nav" aria-label="Site"><div class="pp-in"><a class="pp-home" href="./" aria-current="page">Platform Rules on Hate</a><div class="pp-links"><a href="hate_definitions.html">Defining hate</a><a href="counterspeech.html">Counterspeech</a><a href="arena.html">Would it stay up?</a><a class="pp-me" href="https://simonkarg.github.io/">Simon Karg ↗</a></div></div></nav>
 <main>
 <header class="hero">
   <div class="eyebrow">Community Guidelines · nine platforms · 2022 to today</div>
@@ -115,7 +120,7 @@ body { margin: 0 !important; padding-top: 0 !important; }
   <div><h2>The live judge</h2><p>The arena's "Write your own" box sends your text to a small Azure Function, which asks Zentropi's
   CoPE model to apply the rules you picked. Nothing is stored.</p></div>
 </section>
-<footer>Simon Karg, Aarhus University.</footer>
+<footer><a href="https://simonkarg.github.io/">Simon Karg</a></footer>
 </main>
 
 </body></html>

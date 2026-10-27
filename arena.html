@@ -39,6 +39,8 @@ button { font-family: var(--sans); }
 button:focus-visible, a:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .notice { border: 1px solid var(--rule); border-left: 3px solid var(--unclear); background: var(--sheet); border-radius: 8px; padding: 12px 14px; font-size: 14px; color: var(--ink-2); }
 .notice b { color: var(--ink); }
+.disclaimer { margin: 14px 0 0; max-width: 72ch; font-size: 15px; color: var(--ink-2); border-left: 3px solid var(--ink); padding: 2px 0 2px 14px; }
+.disclaimer b { color: var(--ink); }
 
 /* picker */
 .picker { display: grid; gap: 10px; }
@@ -179,6 +181,8 @@ body { margin: 0 !important; padding-top: 0 !important; }
 .pp-nav .pp-links { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
 .pp-nav .pp-links a { padding: 16px 10px 14px; white-space: nowrap; border-bottom: 2px solid transparent; }
 .pp-nav .pp-links a:hover { color: var(--n-ink); }
+.pp-nav .pp-links a.pp-me { margin-left: 14px; padding-left: 14px; border-left: 1px solid var(--n-rule); border-bottom-color: transparent;
+  padding-top: 8px; padding-bottom: 6px; margin-top: 8px; margin-bottom: 8px; font-weight: 400; }
 .pp-nav .pp-links a[aria-current="page"] { color: var(--n-on); border-bottom-color: var(--n-on); }
 .pp-nav a:focus-visible { outline: 2px solid #2a78d6; outline-offset: -2px; }
 @media (max-width: 640px) {
@@ -186,15 +190,22 @@ body { margin: 0 !important; padding-top: 0 !important; }
   .pp-nav .pp-home { width: 100%; font-size: 16px; }
   .pp-nav .pp-links { margin: 0 -10px; }
   .pp-nav .pp-links a { padding: 10px 10px 9px; font-size: 13.5px; }
+  .pp-nav .pp-in { position: relative; }
+  .pp-nav .pp-links a.pp-me { position: absolute; top: 10px; right: max(16px, env(safe-area-inset-right, 0px));
+    margin: 0; padding: 2px 0; border: 0; font-size: 13px; }
 }
 </style>
 </head><body>
-<nav class="pp-nav" aria-label="Site"><div class="pp-in"><a class="pp-home" href="./">Platform Rules on Hate</a><div class="pp-links"><a href="hate_definitions.html">Defining hate</a><a href="counterspeech.html">Counterspeech</a><a href="arena.html" aria-current=page>Would it stay up?</a></div></div></nav>
+<nav class="pp-nav" aria-label="Site"><div class="pp-in"><a class="pp-home" href="./">Platform Rules on Hate</a><div class="pp-links"><a href="hate_definitions.html">Defining hate</a><a href="counterspeech.html">Counterspeech</a><a href="arena.html" aria-current=page>Would it stay up?</a><a class="pp-me" href="https://simonkarg.github.io/">Simon Karg ↗</a></div></div></nav>
 <div class="wrap">
   <header>
     <div class="eyebrow">Platform policies · Moderation arena</div>
     <h1>Would it stay up?</h1>
     <p class="dek">Pick a statement and see how nine platforms' written hate speech rules judge it, in every version of the rule since 2022.</p>
+    <p class="disclaimer" role="note"><b>An AI model's reading of the written rules, not what platforms do.</b> Every verdict on this page is
+    the interpretation of a policy-reading model, <a href="https://zentropi.ai/" target="_blank" rel="noopener">Zentropi</a>'s CoPE, applied to the text of a platform's Community Guidelines. It makes
+    no claim about how any platform actually moderates: what its moderators and automated systems remove, restrict or leave up can
+    differ from what its written rules say.</p>
   </header>
 
   <!-- TODO (after testing): show the content note as a dialog on the first visit, remembered per browser. -->
@@ -230,7 +241,7 @@ body { margin: 0 !important; padding-top: 0 !important; }
     <h2 id="h-how">How the arena works</h2>
     <div class="how">
       <div class="step"><div class="n">1 · The rule</div><h3>Each platform's own words</h3><p>The hate speech rule as the archive captured it, verbatim, in every version that changed what it prohibits or allows: <span id="n-versions">29</span> versions across nine platforms. Truth Social has no hate rule, so its whole guidelines stand in.</p></div>
-      <div class="step"><div class="n">2 · The judge</div><h3>A policy-reading model</h3><p>Zentropi's CoPE takes a policy written in plain language and a piece of content, and answers one yes-or-no question about it, with a confidence. Where a rule names lighter outcomes than removal, it is asked once per outcome: removal, reduced reach, a label.</p></div>
+      <div class="step"><div class="n">2 · The judge</div><h3>A policy-reading model</h3><p><a href="https://zentropi.ai/" target="_blank" rel="noopener">Zentropi</a>'s CoPE takes a policy written in plain language and a piece of content, and answers one yes-or-no question about it, with a confidence. Where a rule names lighter outcomes than removal, it is asked once per outcome: removal, reduced reach, a label.</p></div>
       <div class="step"><div class="n">3 · The comparison</div><h3>Same text, every version</h3><p>The statement is judged against each version separately. Where the verdict changes from one version to the next, the rule change made the difference.</p></div>
     </div>
     <ul class="caveats">
@@ -238,13 +249,13 @@ body { margin: 0 !important; padding-top: 0 !important; }
       <li>A model can misread a rule. Each verdict links to the rule text so you can check it yourself.</li>
       <li>The statements are test cases. Some are hateful on purpose: they show where the rules draw their lines.</li>
       <li>Rewording, enforcement sections and page layout changes do not count as new versions. Each version's text is its last captured wording.</li>
-      <li>The judge gets each rule in the structure of Zentropi's policy-writing guide, built from the rule's own sentences; only headings and criterion names are added. Rationale, enforcement and reporting passages are left out. Each outcome is a separate question to the model, because asking two at once shifted its answers.</li>
+      <li>The judge gets each rule in the structure of <a href="https://zentropi.ai/" target="_blank" rel="noopener">Zentropi</a>'s policy-writing guide, built from the rule's own sentences; only headings and criterion names are added. Rationale, enforcement and reporting passages are left out. Each outcome is a separate question to the model, because asking two at once shifted its answers.</li>
       <li>The judge makes mistakes on short, broadly worded rules. Snapchat bans content that "demeans, defames, or promotes discrimination" on the basis of religion or immigration status; read that way, its rules remove the statements criticising immigration policy (2022, 2024, March 2026) and a religion's teaching (2022), with up to 79% confidence. TikTok's 2023 rule removes the immigration policy statement at 73%. These statements were written to stay up; the rules give the model little to tell criticism of ideas or policies from attacks on people.</li>
       <li>Text you type is sent to the judge and not stored. Do not enter personal information.</li>
     </ul>
   </section>
 
-  <footer>Rules: Open Terms Archive, Platform Governance Archive (github.com/OpenTermsArchive/pga-versions). Simon Karg, Aarhus University.</footer>
+  <footer>Rules: Open Terms Archive, Platform Governance Archive (github.com/OpenTermsArchive/pga-versions). <a href="https://simonkarg.github.io/">Simon Karg</a>.</footer>
 </div>
 
 <script>
@@ -266,7 +277,7 @@ const pos = d => Math.max(0, Math.min(100, (Date.parse(d) - T0) / (T1 - T0) * 10
 
 document.getElementById("notice").append(DATA.source === "draft"
   ? el("span", {}, el("b", { text: "Prototype. " }), el("span", { text: "These verdicts are a first reading by Claude, an AI model, of the first and the current version of each rule. Versions in between are not judged yet. The live version replaces all of them with CoPE's verdicts and confidence, run on the same rule texts." }))
-  : el("span", {}, el("b", { text: "Verdicts by Zentropi CoPE. " }), el("span", { text: (OUTCOMES ? "Where a rule names lighter outcomes than removal (X, TikTok, LinkedIn, Truth Social), the model is asked separately whether the rule calls for removal, reduced reach or a label; the most severe outcome that applies is shown. " : "") + "Each verdict is the model's reading of the platform's written rule, one rule at a time, with its confidence. Below 65% a verdict is marked borderline: on the test statements with a known answer, every miss fell below that line." })));
+  : el("span", {}, el("b", {}, "Verdicts by ", el("a", { href: "https://zentropi.ai/", target: "_blank", rel: "noopener", text: "Zentropi" }), " CoPE. "), el("span", { text: (OUTCOMES ? "Where a rule names lighter outcomes than removal (X, TikTok, LinkedIn, Truth Social), the model is asked separately whether the rule calls for removal, reduced reach or a label; the most severe outcome that applies is shown. " : "") + "Each verdict is the model's reading of the platform's written rule, one rule at a time, with its confidence. Below 65% a verdict is marked borderline: on the test statements with a known answer, every miss fell below that line." })));
 
 const OWN = { id: "own", label: "Your text", text: "", why: "Judged live against the rule versions you picked." };
 const MAX_RULES = 4;
@@ -398,7 +409,7 @@ const box = document.getElementById("own-text"), go = document.getElementById("o
 function count() { document.getElementById("own-count").textContent = box.value.length ? `${box.value.length}/600` : "";
   go.disabled = !DATA.endpoint || !box.value.trim() || !PICK.length; }
 if (DATA.endpoint) {
-  document.getElementById("own-note").textContent = `Your text is sent with the rules you picked (up to ${MAX_RULES}) to the CoPE model, through a small server that holds the key. Nothing is stored.`;
+  document.getElementById("own-note").textContent = `Your text is sent with the rules you picked (up to ${MAX_RULES}) to Zentropi's CoPE model, through a small server that holds the key. Nothing is stored.`;
 } else {
   box.disabled = true; box.placeholder = "The live judge is not connected yet";
   document.getElementById("own-note").textContent = "When it is, your text is sent with the rules you pick to the CoPE model through a small server, so no key sits in this page. Nothing is stored.";
