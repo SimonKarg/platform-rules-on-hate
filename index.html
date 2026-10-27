@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Platform Rules on Hate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono&display=swap">
+<style>
+:root { --paper:#f6f7f5; --sheet:#fff; --ink:#1c2027; --ink-2:#555b66; --rule:#dfe2e0; --accent:#2a78d6; color-scheme: light; }
+@media (prefers-color-scheme: dark) { :root { --paper:#13161b; --sheet:#1b1f26; --ink:#e7e9ec; --ink-2:#a2a8b3; --rule:#2e333c; --accent:#4b93ea; color-scheme: dark; } }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.55 "IBM Plex Sans", system-ui, sans-serif; padding: 40px max(16px, env(safe-area-inset-left)) 56px; }
+main { max-width: 760px; margin: 0 auto; display: grid; gap: 28px; }
+.eyebrow { font: 12px "IBM Plex Mono", monospace; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-2); }
+h1 { font: 600 clamp(32px, 5.5vw, 46px)/1.08 Newsreader, Georgia, serif; margin: 6px 0 12px; text-wrap: balance; }
+p { margin: 0; color: var(--ink-2); max-width: 62ch; }
+.cards { display: grid; gap: 12px; }
+a.card { display: grid; gap: 4px; padding: 16px 18px; background: var(--sheet); border: 1px solid var(--rule); border-radius: 12px; color: inherit; text-decoration: none; }
+a.card:hover, a.card:focus-visible { border-color: var(--ink-2); outline: none; }
+a.card b { font-size: 18px; } a.card b::after { content: " →"; color: var(--accent); }
+a.card span { color: var(--ink-2); font-size: 15px; }
+footer { font-size: 13px; color: var(--ink-2); border-top: 1px solid var(--rule); padding-top: 14px; }
+</style></head><body><main>
+<header><div class="eyebrow">Platform policies · 2022 to today</div>
+<h1>How platforms write their rules on hate</h1>
+<p>Three views of the hate speech rules of Meta, YouTube, TikTok, X, Reddit, Snapchat, LinkedIn, Bluesky and Truth Social, built from every archived version since 2022.</p></header>
+<nav class="cards"><a class="card" href="hate_definitions.html"><b>How platforms define hate</b><span>What nine platforms' rules count as hate speech, which groups they protect, and how that changed since 2022.</span></a><a class="card" href="counterspeech.html"><b>How platforms treat counterspeech</b><span>Where the rules make room for quoting, condemning and answering hate, and where they ask users to report instead.</span></a><a class="card" href="arena.html"><b>Moderation arena: would it stay up?</b><span>Test statements, and your own text, judged against every version of each platform's hate speech rule.</span></a></nav>
+<footer>Rules: Open Terms Archive, Platform Governance Archive. Simon Karg, Aarhus University.</footer>
+</main></body></html>
