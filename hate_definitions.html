@@ -1,3 +1,6 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>How Platforms Define Hate</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -207,6 +210,32 @@ footer { font-size: 12.5px; color: var(--ink-2); border-top: 1px solid var(--rul
 @media (prefers-reduced-motion: reduce) { .doc mark { transition: none; } }
 </style>
 
+
+<style id="pp-nav-css">
+html { overflow-x: clip; scroll-padding-top: 64px; }   /* links to #anchors land below the bar */
+body { margin: 0 !important; padding-top: 0 !important; }
+.pp-nav { --n-bg: #ffffff; --n-ink: #1c2027; --n-ink2: #555b66; --n-rule: #dfe2e0; --n-on: #1c2027;
+  position: sticky; top: 0; z-index: 50; margin: 0 calc(50% - 50vw) 28px; background: var(--n-bg);
+  border-bottom: 1px solid var(--n-rule); font: 500 14px/1.2 "IBM Plex Sans", system-ui, -apple-system, sans-serif; }
+@media (prefers-color-scheme: dark) { .pp-nav { --n-bg: #1b1f26; --n-ink: #e7e9ec; --n-ink2: #a2a8b3; --n-rule: #2e333c; --n-on: #e7e9ec; } }
+.pp-nav .pp-in { max-width: 1080px; margin: 0 auto; padding: 0 max(16px, env(safe-area-inset-left, 0px));
+  display: flex; align-items: center; gap: 8px 24px; min-height: 52px; }
+.pp-nav a { color: var(--n-ink2); text-decoration: none; }
+.pp-nav .pp-home { color: var(--n-ink); font: 600 18px/1.1 Newsreader, Georgia, serif; white-space: nowrap; margin-right: auto; }
+.pp-nav .pp-links { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+.pp-nav .pp-links a { padding: 16px 10px 14px; white-space: nowrap; border-bottom: 2px solid transparent; }
+.pp-nav .pp-links a:hover { color: var(--n-ink); }
+.pp-nav .pp-links a[aria-current="page"] { color: var(--n-on); border-bottom-color: var(--n-on); }
+.pp-nav a:focus-visible { outline: 2px solid #2a78d6; outline-offset: -2px; }
+@media (max-width: 640px) {
+  .pp-nav .pp-in { flex-wrap: wrap; gap: 0; padding-top: 10px; }
+  .pp-nav .pp-home { width: 100%; font-size: 16px; }
+  .pp-nav .pp-links { margin: 0 -10px; }
+  .pp-nav .pp-links a { padding: 10px 10px 9px; font-size: 13.5px; }
+}
+</style>
+</head><body>
+<nav class="pp-nav" aria-label="Site"><div class="pp-in"><a class="pp-home" href="./">Platform Rules on Hate</a><div class="pp-links"><a href="hate_definitions.html" aria-current=page>Defining hate</a><a href="counterspeech.html">Counterspeech</a><a href="arena.html">Would it stay up?</a></div></div></nav>
 <div class="wrap">
   <header>
     <div class="eyebrow">Community Guidelines · 9 platforms · 2022–2026</div>
@@ -536,3 +565,5 @@ document.getElementById('mode-diff').onclick = () => { S.mode = 'diff'; render()
 const start = Math.max(0, D.platforms.findIndex(p => '#' + p.key === location.hash));
 pick(start);
 </script>
+
+</body></html>

@@ -1,3 +1,6 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Moderation Arena</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,18 +49,23 @@ button:focus-visible, a:focus-visible, textarea:focus-visible { outline: 2px sol
 .pick { border: 1px solid var(--rule); background: var(--sheet); color: var(--ink); border-radius: 999px; padding: 5px 12px; font-size: 13.5px; cursor: pointer; }
 .pick:hover { border-color: var(--ink-3); }
 .pick[aria-pressed="true"] { background: var(--ink); color: var(--sheet); border-color: var(--ink); }
+.pick.yours { border-color: var(--accent); color: var(--accent); font-weight: 600; }
+.pick.yours[aria-pressed="true"] { background: var(--accent); color: var(--sheet); border-color: var(--accent); }
 
 /* statement */
-.stage { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 14px; align-items: stretch; }
-@media (max-width: 760px) { .stage { grid-template-columns: 1fr; } }
-.post { background: var(--sheet); border: 1px solid var(--rule); border-radius: 12px; padding: 18px 20px; display: grid; gap: 10px; }
-.post .who { display: flex; gap: 10px; align-items: center; font-size: 13px; color: var(--ink-2); }
-.post .av { width: 30px; height: 30px; border-radius: 50%; background: var(--chip); border: 1px solid var(--rule); }
-.post .txt { font-family: var(--serif); font-size: 21px; line-height: 1.38; overflow-wrap: anywhere; }
-.post .why { font-size: 13.5px; color: var(--ink-2); border-top: 1px solid var(--rule); padding-top: 10px; }
-.own { background: var(--sheet); border: 1px dashed var(--rule); border-radius: 12px; padding: 14px 16px; display: grid; gap: 8px; align-content: start; }
+/* the statement sits directly above the verdicts, so both fit on one screen */
+.verdicts { display: grid; gap: 12px; }
+.post { background: var(--sheet); border: 1px solid var(--rule); border-radius: 12px; padding: 14px 20px; display: grid; gap: 8px; }
+.post .who { font-family: var(--mono); font-size: 11.5px; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-2); }
+.post .txt { font-family: var(--serif); font-size: 21px; line-height: 1.36; overflow-wrap: anywhere; }
+.post .why { font-size: 13.5px; color: var(--ink-2); }
+/* your own text: the editor on the left, the rule versions on the right, one line per platform */
+.own { background: var(--sheet); border: 1px solid var(--rule); border-radius: 12px; padding: 16px 20px; display: grid;
+  grid-template-columns: minmax(0, 1fr) auto; gap: 12px 28px; align-items: start; }
+.own .ed { display: grid; gap: 8px; align-content: start; height: 100%; grid-template-rows: auto minmax(110px, 1fr) auto auto auto; }
+@media (max-width: 860px) { .own { grid-template-columns: minmax(0, 1fr); } .own .ed { height: auto; } }
 .own label { font-weight: 600; font-size: 14px; }
-.own textarea { width: 100%; min-height: 84px; resize: vertical; border: 1px solid var(--rule); border-radius: 8px; padding: 8px 10px; font: 15px var(--sans); background: var(--paper); color: var(--ink-3); }
+.own textarea { width: 100%; min-height: 110px; height: 100%; resize: vertical; border: 1px solid var(--rule); border-radius: 8px; padding: 8px 10px; font: 17px/1.4 var(--serif); background: var(--paper); color: var(--ink-3); }
 .own .muted { font-size: 13px; }
 
 /* tally */
@@ -68,14 +76,15 @@ button:focus-visible, a:focus-visible, textarea:focus-visible { outline: 2px sol
 
 /* results: one row per platform, a shared time axis, one segment per rule version */
 .results { background: var(--sheet); border: 1px solid var(--rule); border-radius: 12px; overflow: hidden; }
-.rhead, .row { display: grid; grid-template-columns: 112px minmax(0, 1fr) 172px; gap: 0 14px; padding: 10px 16px; align-items: center; }
+.rhead, .row { display: grid; grid-template-columns: 112px minmax(0, 1fr) 272px; gap: 0 14px; padding: 7px 16px; align-items: center; }
+.empty { padding: 18px 16px; color: var(--ink-2); font-size: 14px; }
 .rhead { font-family: var(--mono); font-size: 11.5px; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-2); border-bottom: 1px solid var(--rule); padding-block: 8px; }
 .row + .row, .row + .detail, .detail + .row { border-top: 1px solid var(--rule); }
 .row .pname { font-weight: 600; }
 .axis { position: relative; height: 16px; text-transform: none; letter-spacing: 0; }
 .axis span { position: absolute; transform: translateX(-50%); font-size: 11.5px; color: var(--ink-3); }
 .axis span::before { content: ""; position: absolute; left: 50%; top: 16px; height: 6px; border-left: 1px solid var(--rule); }
-.track { position: relative; height: 30px; border-radius: 6px; background: repeating-linear-gradient(135deg, transparent 0 5px, var(--chip) 5px 7px); }
+.track { position: relative; height: 28px; border-radius: 6px; background: repeating-linear-gradient(135deg, transparent 0 5px, var(--chip) 5px 7px); }
 .seg { position: absolute; top: 0; bottom: 0; border: 0; padding: 0; cursor: pointer; display: flex; align-items: center; justify-content: center;
   background: color-mix(in srgb, var(--s) 22%, var(--sheet)); border-left: 2px solid var(--sheet); color: var(--s); font-weight: 700; font-size: 13px; }
 .seg:first-child { border-left: 0; border-radius: 6px 0 0 6px; }
@@ -91,7 +100,8 @@ button:focus-visible, a:focus-visible, textarea:focus-visible { outline: 2px sol
 .seg:hover { background: color-mix(in srgb, var(--s) 34%, var(--sheet)); }
 .seg[aria-pressed="true"] { outline: 2px solid var(--ink); outline-offset: -2px; z-index: 1; }
 .seg.flip::before { content: ""; position: absolute; left: -2px; top: -5px; bottom: -5px; border-left: 2px solid var(--ink); }
-.now { display: grid; gap: 3px; justify-items: start; }
+.now { display: flex; gap: 4px 8px; align-items: center; flex-wrap: wrap; }
+@media (min-width: 641px) { .now { flex-wrap: nowrap; } }
 .now .date { font-family: var(--mono); font-size: 11px; color: var(--ink-3); }
 .pill { white-space: nowrap; display: inline-flex; align-items: center; gap: 7px; justify-self: start; padding: 3px 10px 3px 6px; border-radius: 999px; font-size: 13.5px; font-weight: 600;
   background: color-mix(in srgb, var(--s) 13%, var(--sheet)); border: 1px solid color-mix(in srgb, var(--s) 40%, var(--sheet)); }
@@ -107,6 +117,7 @@ button:focus-visible, a:focus-visible, textarea:focus-visible { outline: 2px sol
   .rhead { grid-template-columns: minmax(0, 1fr); } .rhead > :not(.axis) { display: none; }
   .row { grid-template-columns: minmax(0, 1fr) auto; gap: 8px 10px; }
   .row .track { grid-column: 1 / -1; grid-row: 2; }
+  .row .now .date { display: none; }
 }
 .detail { padding: 12px 16px 16px; background: var(--paper); display: grid; gap: 10px; }
 .detail .meta { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; font-size: 13.5px; }
@@ -124,10 +135,11 @@ button:focus-visible, a:focus-visible, textarea:focus-visible { outline: 2px sol
 .own textarea:enabled { color: var(--ink); }
 .vpick { display: grid; gap: 6px; }
 .vpick .vhead { font-size: 13px; color: var(--ink-2); }
-.vpick .vrow { display: grid; grid-template-columns: 82px minmax(0, 1fr); gap: 4px 8px; align-items: center; font-size: 13px; }
+.vpick .vrow { display: grid; grid-template-columns: 92px auto; gap: 4px 8px; align-items: center; font-size: 13px; }
 .vpick .vrow > span { color: var(--ink-2); }
-.vpick .vrow > div { display: flex; flex-wrap: wrap; gap: 5px; }
-.vchip { border: 1px solid var(--ink-3); background: var(--sheet); color: var(--ink); border-radius: 8px; padding: 4px 9px; min-height: 30px;
+.vpick .vrow > div { display: flex; flex-wrap: nowrap; gap: 5px; }
+@media (max-width: 560px) { .vpick .vrow { grid-template-columns: 1fr; } .vpick .vrow > div { flex-wrap: wrap; gap: 4px; } .vchip { padding: 3px 7px; font-size: 12px; } }
+.vchip { white-space: nowrap; border: 1px solid var(--ink-3); background: var(--sheet); color: var(--ink); border-radius: 8px; padding: 3px 9px; min-height: 28px;
   font: 500 12.5px var(--sans); cursor: pointer; box-shadow: 0 1px 0 var(--rule); }
 .vchip:hover:not(:disabled):not([aria-pressed="true"]) { border-color: var(--ink); background: var(--paper); color: var(--ink); }
 .vchip[aria-pressed="true"]:hover { background: color-mix(in srgb, var(--ink) 82%, var(--sheet)); color: var(--sheet); }
@@ -152,6 +164,32 @@ ul.caveats { margin: 0; padding-left: 18px; display: grid; gap: 6px; color: var(
 footer { font-size: 12.5px; color: var(--ink-2); border-top: 1px solid var(--rule); padding-top: 14px; }
 </style>
 
+
+<style id="pp-nav-css">
+html { overflow-x: clip; scroll-padding-top: 64px; }   /* links to #anchors land below the bar */
+body { margin: 0 !important; padding-top: 0 !important; }
+.pp-nav { --n-bg: #ffffff; --n-ink: #1c2027; --n-ink2: #555b66; --n-rule: #dfe2e0; --n-on: #1c2027;
+  position: sticky; top: 0; z-index: 50; margin: 0 calc(50% - 50vw) 28px; background: var(--n-bg);
+  border-bottom: 1px solid var(--n-rule); font: 500 14px/1.2 "IBM Plex Sans", system-ui, -apple-system, sans-serif; }
+@media (prefers-color-scheme: dark) { .pp-nav { --n-bg: #1b1f26; --n-ink: #e7e9ec; --n-ink2: #a2a8b3; --n-rule: #2e333c; --n-on: #e7e9ec; } }
+.pp-nav .pp-in { max-width: 1080px; margin: 0 auto; padding: 0 max(16px, env(safe-area-inset-left, 0px));
+  display: flex; align-items: center; gap: 8px 24px; min-height: 52px; }
+.pp-nav a { color: var(--n-ink2); text-decoration: none; }
+.pp-nav .pp-home { color: var(--n-ink); font: 600 18px/1.1 Newsreader, Georgia, serif; white-space: nowrap; margin-right: auto; }
+.pp-nav .pp-links { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+.pp-nav .pp-links a { padding: 16px 10px 14px; white-space: nowrap; border-bottom: 2px solid transparent; }
+.pp-nav .pp-links a:hover { color: var(--n-ink); }
+.pp-nav .pp-links a[aria-current="page"] { color: var(--n-on); border-bottom-color: var(--n-on); }
+.pp-nav a:focus-visible { outline: 2px solid #2a78d6; outline-offset: -2px; }
+@media (max-width: 640px) {
+  .pp-nav .pp-in { flex-wrap: wrap; gap: 0; padding-top: 10px; }
+  .pp-nav .pp-home { width: 100%; font-size: 16px; }
+  .pp-nav .pp-links { margin: 0 -10px; }
+  .pp-nav .pp-links a { padding: 10px 10px 9px; font-size: 13.5px; }
+}
+</style>
+</head><body>
+<nav class="pp-nav" aria-label="Site"><div class="pp-in"><a class="pp-home" href="./">Platform Rules on Hate</a><div class="pp-links"><a href="hate_definitions.html">Defining hate</a><a href="counterspeech.html">Counterspeech</a><a href="arena.html" aria-current=page>Would it stay up?</a></div></div></nav>
 <div class="wrap">
   <header>
     <div class="eyebrow">Platform policies · Moderation arena</div>
@@ -166,23 +204,23 @@ footer { font-size: 12.5px; color: var(--ink-2); border-top: 1px solid var(--rul
 
   <section class="picker" aria-label="Statements" id="picker"></section>
 
-  <section class="stage">
-    <article class="post" aria-live="polite">
-      <div class="who"><span class="av" aria-hidden="true"></span><span>Test statement written for this page</span></div>
-      <div class="txt" id="post-text"></div>
-      <div class="why" id="post-why"></div>
-    </article>
-    <div class="own">
+  <section class="own" id="own" hidden aria-label="Try your own text">
+    <div class="ed">
       <label for="own-text">Try your own text</label>
       <textarea id="own-text" maxlength="600" placeholder="Write a post, up to 600 characters"></textarea>
-      <div class="vpick" id="vpick"></div>
       <div style="display:flex;gap:10px;align-items:center"><button class="go" id="own-go" type="button">Judge it</button><span class="count" id="own-count"></span></div>
       <p class="err" id="own-err" hidden></p>
       <p class="muted" id="own-note"></p>
     </div>
+    <div class="vpick" id="vpick"></div>
   </section>
 
-  <section style="display:grid;gap:12px">
+  <section class="verdicts" id="verdicts">
+    <article class="post" id="post" aria-live="polite">
+      <div class="who" id="post-who">Test statement written for this page</div>
+      <div class="txt" id="post-text"></div>
+      <div class="why" id="post-why"></div>
+    </article>
     <div class="tally" id="tally"></div>
     <div class="results" id="results" aria-label="Verdicts by platform and rule version"></div>
     <div class="legend" id="legend"></div>
@@ -191,7 +229,7 @@ footer { font-size: 12.5px; color: var(--ink-2); border-top: 1px solid var(--rul
   <section style="display:grid;gap:14px" aria-labelledby="h-how">
     <h2 id="h-how">How the arena works</h2>
     <div class="how">
-      <div class="step"><div class="n">1 · The rule</div><h3>Each platform's own words</h3><p>The hate speech rule as the archive captured it, verbatim, in every version that changed what it prohibits or allows: 27 versions across nine platforms. Truth Social has no hate rule, so its whole guidelines stand in.</p></div>
+      <div class="step"><div class="n">1 · The rule</div><h3>Each platform's own words</h3><p>The hate speech rule as the archive captured it, verbatim, in every version that changed what it prohibits or allows: <span id="n-versions">29</span> versions across nine platforms. Truth Social has no hate rule, so its whole guidelines stand in.</p></div>
       <div class="step"><div class="n">2 · The judge</div><h3>A policy-reading model</h3><p>Zentropi's CoPE takes a policy written in plain language and a piece of content, and answers one yes-or-no question about it, with a confidence. Where a rule names lighter outcomes than removal, it is asked once per outcome: removal, reduced reach, a label.</p></div>
       <div class="step"><div class="n">3 · The comparison</div><h3>Same text, every version</h3><p>The statement is judged against each version separately. Where the verdict changes from one version to the next, the rule change made the difference.</p></div>
     </div>
@@ -230,7 +268,7 @@ document.getElementById("notice").append(DATA.source === "draft"
   ? el("span", {}, el("b", { text: "Prototype. " }), el("span", { text: "These verdicts are a first reading by Claude, an AI model, of the first and the current version of each rule. Versions in between are not judged yet. The live version replaces all of them with CoPE's verdicts and confidence, run on the same rule texts." }))
   : el("span", {}, el("b", { text: "Verdicts by Zentropi CoPE. " }), el("span", { text: (OUTCOMES ? "Where a rule names lighter outcomes than removal (X, TikTok, LinkedIn, Truth Social), the model is asked separately whether the rule calls for removal, reduced reach or a label; the most severe outcome that applies is shown. " : "") + "Each verdict is the model's reading of the platform's written rule, one rule at a time, with its confidence. Below 65% a verdict is marked borderline: on the test statements with a known answer, every miss fell below that line." })));
 
-const OWN = { id: "own", label: "Your text", text: "", why: "Your own text, judged live against the rule versions you picked." };
+const OWN = { id: "own", label: "Your text", text: "", why: "Judged live against the rule versions you picked." };
 const MAX_RULES = 4;
 const current = p => DATA.versions[p][DATA.versions[p].length - 1].when;
 let PICK = ["Meta", "YouTube", "TikTok", "X"].map(p => `${p}|${current(p)}`);
@@ -241,11 +279,12 @@ const verdict = (p, when) => DATA.verdicts[`${CUR}|${p}|${when}`];
 
 function renderPicker() {
   const box = document.getElementById("picker"); box.replaceChildren();
-  const groups = GROUPS.slice(); if (OWN.text) groups.push(["own", "Yours"]);
+  const groups = GROUPS.slice(); groups.push(["own", "Your own"]);
   for (const [g, label] of groups) {
     const items = g === "own" ? [OWN] : DATA.presets.filter(p => p.group === g); if (!items.length) continue;
     const gi = el("div", { class: "gi" });
-    for (const p of items) { const b = el("button", { class: "pick", type: "button", "aria-pressed": String(p.id === CUR), text: p.label });
+    for (const p of items) { const b = el("button", { class: "pick" + (g === "own" ? " yours" : ""), type: "button", "aria-pressed": String(p.id === CUR),
+        text: g === "own" ? (OWN.text ? "Your text" : "✎ Write your own") : p.label });
       b.addEventListener("click", () => { CUR = p.id; OPEN = null; renderAll(); }); gi.append(b); }
     box.append(el("div", { class: "group" }, el("span", { class: "gl", text: label }), gi));
   }
@@ -266,7 +305,9 @@ function axis() {
 }
 function renderAll() {
   renderPicker();
-  const pr = preset();
+  const pr = preset(), own = CUR === "own";
+  document.getElementById("own").hidden = !own;
+  document.getElementById("post").hidden = own;         // your text stays in the editor above
   document.getElementById("post-text").textContent = pr.text;
   document.getElementById("post-why").textContent = pr.why;
   const tally = { violates: 0, borderline: 0, unclear: 0, allowed: 0, "no rule": 0 }, changed = [];
@@ -274,7 +315,7 @@ function renderAll() {
   res.append(el("div", { class: "rhead" }, el("span", { text: "Platform" }), axis(), el("span", { text: "Today" })));
   for (const p of DATA.order) {
     const vs = DATA.versions[p] || []; if (!vs.length) continue;
-    if (CUR === "own" && !vs.some(v => verdict(p, v.when))) continue;     // your text: only the rules you picked
+    if (own && !vs.some(v => verdict(p, v.when))) continue;     // your text: only the rules you picked
     const track = el("div", { class: "track" });
     let prev = null, flips = 0;
     vs.forEach((v, i) => {
@@ -308,7 +349,9 @@ function renderAll() {
           el("pre", { text: open.text }))));
     }
   }
+  if (own && !OWN.text) res.append(el("div", { class: "empty", text: "Write a post above, pick up to " + MAX_RULES + " rule versions and press Judge it. The verdicts appear here." }));
   const t = document.getElementById("tally"); t.replaceChildren(el("span", { class: "muted", text: "Today:" }));
+  t.hidden = own && !OWN.text;
   for (const k of ["removed", "violates", "reach restricted", "labelled", "borderline", "unclear", "stays up", "allowed", "no rule"]) { if (!tally[k]) continue;
     const [label, icon, cls] = k === "borderline" ? ["Borderline", "~", "norule"] : VERD[k];
     t.append(el("span", { class: "t" }, el("span", { class: "pill s-" + cls + (k === "borderline" ? " low" : "") }, el("i", { text: icon, "aria-hidden": "true" }), el("span", { text: label })), el("b", { text: String(tally[k]) }))); }
@@ -375,6 +418,10 @@ go.addEventListener("click", async () => {
   } catch (e) { err.textContent = e.message || "The judge is unavailable. Try again in a minute."; err.hidden = false; }
   go.textContent = "Judge it"; count();
 });
+document.getElementById("n-versions").textContent = Object.values(DATA.versions).reduce((n, v) => n + v.length, 0);
+try { if (location.hash === "#own") CUR = "own"; } catch (e) {}
 renderLegend();
 renderAll();
 </script>
+
+</body></html>
