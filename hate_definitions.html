@@ -1,11 +1,21 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-a1dyucbtoT5X3ZqoCpt6zPruiM9qL1ZeOxq23vacanc=' 'sha256-wmBuCW+/YUbMwHlgM5ytbyIdSEKF8gIS1xY/bKQuSLI='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://pp-arena-judge-sk.azurewebsites.net https://swedencentral-0.in.applicationinsights.azure.com; base-uri 'none'; form-action 'self'; object-src 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>How Platforms Define Hate</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<title>How platforms define hate · Platform Rules on Hate</title>
+<meta name="description" content="What nine platforms&#x27; rules count as hate speech, which groups they protect, and every change since 2022, sentence by sentence.">
+<link rel="canonical" href="https://simonkarg.github.io/platform-rules-on-hate/hate_definitions.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Platform Rules on Hate">
+<meta property="og:title" content="How platforms define hate">
+<meta property="og:description" content="What nine platforms&#x27; rules count as hate speech, which groups they protect, and every change since 2022, sentence by sentence.">
+<meta property="og:url" content="https://simonkarg.github.io/platform-rules-on-hate/hate_definitions.html">
+<meta property="og:image" content="https://simonkarg.github.io/platform-rules-on-hate/img/og-hate_definitions.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="How platforms define hate: a preview of the page">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="fonts/fonts.css">
 <style>
 /* Layout: an annotated policy document per platform. Platform tabs, a dated version rail, the
    definition set like a statute with marker-pen highlights or a redline, then the edits beneath it. */
@@ -238,12 +248,15 @@ body { margin: 0 !important; padding-top: 0 !important; }
   .pp-nav .pp-links a.pp-me { position: absolute; top: 10px; right: max(16px, env(safe-area-inset-right, 0px));
     margin: 0; padding: 2px 0; border: 0; font-size: 13px; }
 }
+.pp-privacy { max-width: 980px; margin: 32px auto 0; text-align: center; font: 12.5px/1.5 "IBM Plex Sans", system-ui, sans-serif; color: #6b717b; }
+.pp-privacy a { color: inherit; text-underline-offset: 2px; }
+@media (prefers-color-scheme: dark) { .pp-privacy { color: #8f95a0; } }
 </style>
 </head><body>
 <nav class="pp-nav" aria-label="Site"><div class="pp-in"><a class="pp-home" href="./">Platform Rules on Hate</a><div class="pp-links"><a href="hate_definitions.html" aria-current=page>Defining hate</a><a href="counterspeech.html">Counterspeech</a><a href="arena.html">Would it stay up?</a><a class="pp-me" href="https://simonkarg.github.io/">Simon Karg ↗</a></div></div></nav>
 <div class="wrap">
   <header>
-    <div class="eyebrow">Community Guidelines · 9 platforms · 2022–2026</div>
+    <div class="eyebrow">Community Guidelines · 9 platforms · 2022⁠–⁠2026</div>
     <h1>How platforms define hate</h1>
     <p class="dek">The general definition of hate speech that opens each platform's rules, in every version captured since 2022. Where a platform states it twice, as a one-line rule in its overview and at the top of its hate policy page, both are shown together as one document. Highlights mark its parts and the redline shows what changed. Below it: which protected groups each platform stopped or started naming, with the sentence behind every change.</p>
   </header>
@@ -324,7 +337,7 @@ body { margin: 0 !important; padding-top: 0 !important; }
 
   <footer>
     <div id="fn-named"><sup>1</sup> Named is not the same as protected. A group can stay on a platform's list while the rules that spell out what protecting it means are removed or qualified: X still names gender identity, but since April 2023 no longer says that misgendering or deadnaming a transgender person is an attack; Meta still names sexual orientation and gender identity, but since January 2025 allows allegations of mental illness or abnormality based on them. Reading the full rules, not just the list, is what shows how far a group is protected. And what a platform actually enforces is a separate question that its written rules cannot answer. <a href="#fnref-named">↩</a></div>
-    <div>Source: Open Terms Archive, Platform Governance Archive (github.com/OpenTermsArchive/pga-versions), with Wayback Machine copies filling capture gaps. Each version links to the archive's copy on GitHub where there is one (the document file holding the page, at that commit), otherwise to the Wayback capture used. Dates are when a change was first captured, usually within days of the real change; the first version of each page may be older than its first capture.</div>
+    <div>Source: Open Terms Archive, <a href="https://github.com/OpenTermsArchive/pga-versions">Platform Governance Archive</a>, with Wayback Machine copies filling capture gaps. Each version links to the archive's copy on GitHub where there is one (the document file holding the page, at that commit), otherwise to the Wayback capture used. Dates are when a change was first captured, usually within days of the real change; the first version of each page may be older than its first capture.</div>
     <div>Highlights are word patterns chosen by hand and applied the same way to every platform and version, so a few words may be marked loosely. Edits are exact comparisons between consecutive versions; sentences at least 80% the same count as reworded and are left out, as are sentences that moved to another page. On pages that also hold other rules, only edits about hate are listed.</div>
   </footer>
 </div>
@@ -571,4 +584,27 @@ const start = Math.max(0, D.platforms.findIndex(p => '#' + p.key === location.ha
 pick(start);
 </script>
 
+<p class="pp-privacy">Visits are counted anonymously: no cookies, nothing stored in your browser, no IP addresses kept. <a href="./#privacy">Privacy</a></p>
+<script>
+(() => {
+  const CS = "InstrumentationKey=4e86ea7f-41b3-462a-9a30-abd2c3bdaeec;IngestionEndpoint=https://swedencentral-0.in.applicationinsights.azure.com/;LiveEndpoint=https://swedencentral.livediagnostics.monitor.azure.com/;ApplicationId=652c226d-5dbb-424f-9253-1a395767fb6c", PAGE = "How platforms define hate";
+  if (navigator.doNotTrack === "1" || navigator.globalPrivacyControl) return;
+  const kv = Object.fromEntries(CS.split(";").filter(Boolean).map(x => { const i = x.indexOf("=");
+    return [x.slice(0, i).trim().toLowerCase(), x.slice(i + 1).trim()]; }));
+  const key = kv.instrumentationkey; if (!key) return;
+  const url = (kv.ingestionendpoint || "https://dc.services.visualstudio.com/").replace(/\/?$/, "/") + "v2/track";
+  const ref = (() => { try { const r = new URL(document.referrer); return r.host === location.host ? "(this site)" : r.host; }
+    catch (e) { return "(none)"; } })();
+  const device = matchMedia("(max-width: 640px)").matches ? "phone" : matchMedia("(max-width: 1024px)").matches ? "tablet" : "desktop";
+  const send = (type, data) => {
+    const body = JSON.stringify([{ name: `Microsoft.ApplicationInsights.${key.replace(/-/g, "")}.${type}`, time: new Date().toISOString(),
+      iKey: key, tags: { "ai.operation.name": PAGE, "ai.device.type": "Browser", "ai.internal.sdkVersion": "pp-beacon:1" },
+      data: { baseType: type + "Data", baseData: Object.assign({ ver: 2 }, data) } }]);
+    try { fetch(url, { method: "POST", body, keepalive: true, headers: { "Content-Type": "application/json" } }).catch(() => {}); } catch (e) {}
+  };
+  send("Pageview", { name: PAGE, url: location.origin + location.pathname,
+    properties: { referrer: ref, device, language: (navigator.language || "").slice(0, 2) } });
+  addEventListener("pp:event", e => send("Event", { name: e.detail.name, properties: Object.assign({ page: PAGE }, e.detail.props || {}) }));
+})();
+</script>
 </body></html>

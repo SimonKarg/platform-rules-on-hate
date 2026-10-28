@@ -1,10 +1,21 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-sLiw4/C35bTuMMuhP58GywXRxWjBoM6W788Akjv48aw='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://pp-arena-judge-sk.azurewebsites.net https://swedencentral-0.in.applicationinsights.azure.com; base-uri 'none'; form-action 'self'; object-src 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Platform Rules on Hate</title>
-<meta name="description" content="How nine social media platforms write, and rewrite, their rules on hate speech, 2022 to today.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono&display=swap">
+<meta name="description" content="How nine social media platforms write, and rewrite, their rules on hate speech: definitions, counterspeech, and what an AI model makes of every version since 2022.">
+<link rel="canonical" href="https://simonkarg.github.io/platform-rules-on-hate/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Platform Rules on Hate">
+<meta property="og:title" content="Platform Rules on Hate">
+<meta property="og:description" content="How nine social media platforms write, and rewrite, their rules on hate speech: definitions, counterspeech, and what an AI model makes of every version since 2022.">
+<meta property="og:url" content="https://simonkarg.github.io/platform-rules-on-hate/">
+<meta property="og:image" content="https://simonkarg.github.io/platform-rules-on-hate/img/og-index.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Platform Rules on Hate: a preview of the page">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="fonts/fonts.css">
 <style>
 :root { --paper:#f6f7f5; --sheet:#fff; --ink:#1c2027; --ink-2:#555b66; --ink-3:#7b818b; --rule:#dfe2e0; --chip:#eceeec; --accent:#2a78d6; color-scheme: light; }
 @media (prefers-color-scheme: dark) { :root { --paper:#13161b; --sheet:#1b1f26; --ink:#e7e9ec; --ink-2:#a2a8b3; --ink-3:#868c97; --rule:#2e333c; --chip:#262b33; --accent:#4b93ea; color-scheme: dark; } }
@@ -17,6 +28,7 @@ main { max-width: 1080px; margin: 0 auto; display: grid; gap: 40px; }
 h1 { font: 600 clamp(34px, 6vw, 56px)/1.04 Newsreader, Georgia, serif; margin: 0; text-wrap: balance; letter-spacing: -.01em; }
 .intro { display: grid; gap: 12px; font-size: 18px; line-height: 1.6; color: var(--ink-2); }
 .intro p { margin: 0; max-width: 64ch; }
+.intro ol { margin: -4px 0 0; padding-left: 1.4em; display: grid; gap: 4px; max-width: 64ch; }
 .intro strong { color: var(--ink); font-weight: 600; }
 .platforms { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
 .platforms span { font-size: 13px; padding: 3px 10px; border-radius: 999px; background: var(--chip); color: var(--ink-2); }
@@ -34,7 +46,7 @@ a.card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .ct b { font: 600 22px/1.2 Newsreader, Georgia, serif; }
 .ct span { color: var(--ink-2); font-size: 15px; line-height: 1.5; }
 .ct .go { color: var(--accent); font-weight: 600; font-size: 14.5px; margin-top: 6px; }
-.about { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; border-top: 1px solid var(--rule); padding-top: 22px; }
+.about { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; border-top: 1px solid var(--rule); padding-top: 22px; }
 @media (max-width: 900px) { .about { grid-template-columns: minmax(0, 1fr); } }
 .about h2 { font: 12px "IBM Plex Mono", monospace; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-2); margin: 0 0 6px; font-weight: 400; }
 .about p { margin: 0; font-size: 14.5px; color: var(--ink-2); max-width: 46ch; }
@@ -69,12 +81,15 @@ body { margin: 0 !important; padding-top: 0 !important; }
   .pp-nav .pp-links a.pp-me { position: absolute; top: 10px; right: max(16px, env(safe-area-inset-right, 0px));
     margin: 0; padding: 2px 0; border: 0; font-size: 13px; }
 }
+.pp-privacy { max-width: 980px; margin: 32px auto 0; text-align: center; font: 12.5px/1.5 "IBM Plex Sans", system-ui, sans-serif; color: #6b717b; }
+.pp-privacy a { color: inherit; text-underline-offset: 2px; }
+@media (prefers-color-scheme: dark) { .pp-privacy { color: #8f95a0; } }
 </style>
 </head><body>
 <nav class="pp-nav" aria-label="Site"><div class="pp-in"><a class="pp-home" href="./" aria-current="page">Platform Rules on Hate</a><div class="pp-links"><a href="hate_definitions.html">Defining hate</a><a href="counterspeech.html">Counterspeech</a><a href="arena.html">Would it stay up?</a><a class="pp-me" href="https://simonkarg.github.io/">Simon Karg ↗</a></div></div></nav>
 <main>
 <header class="hero">
-  <div class="eyebrow">Community Guidelines · nine platforms · 2022 to today</div>
+  <div class="eyebrow">Community Guidelines · 9 platforms · 2022⁠–⁠2026</div>
   <h1>How platforms write their rules on hate</h1>
   <div class="intro"><!-- The landing page's introduction. Plain HTML paragraphs;
      build_site.py puts this file in as it is.  -->
@@ -83,11 +98,11 @@ body { margin: 0 !important; padding-top: 0 !important; }
      are about?
 </p>
 <p>
-     Almost all social platforms lay out so called Community Guidelines that describe the overall vision the platform
+     Almost all social platforms lay out so-called Community Guidelines that describe the overall vision the platform
      has about itself and the type of content that they wish to be present.
 
      These pages communicate the kinds of content platforms do not want to see, and the rules
-     they have in place to remove such content. They define <strong>what counts hate speech, who is especially
+     they have in place to remove such content. They define <strong>what counts as hate speech, who is especially
           protected, and
           what is allowed to be said in response</strong>.
 </p>
@@ -101,26 +116,50 @@ body { margin: 0 !important; padding-top: 0 !important; }
 </p>
 <p>
      The three pages look at the same rules from three angles:
-
+</p>
 <ol>
      <li>how the rules define hate, whom they protect, and how this has changed over time</li>
      <li>how the rules talk about counterspeech</li>
      <li>how changing platform rules affect what is allowed and what is not</li>
-</ol>
-
-</p></div>
+</ol></div>
   <div class="platforms" aria-label="Platforms"><span>Meta (Facebook, Instagram)</span><span>YouTube</span><span>TikTok</span><span>X</span><span>Reddit</span><span>Snapchat</span><span>LinkedIn</span><span>Bluesky</span><span>Truth Social</span></div>
 </header>
-<nav class="cards" aria-label="The three pages"><a class="card" href="hate_definitions.html"><div class="shot"><picture><source srcset="img/hate_definitions-dark.webp" media="(prefers-color-scheme: dark)"><img src="img/hate_definitions-light.webp" alt="Preview of How platforms define hate" loading="lazy" width="1020" height="600"></picture></div><div class="ct"><span class="n">01</span><b>How platforms define hate</b><span>What nine platforms&#x27; rules count as hate speech, which groups they protect, and every change since 2022, sentence by sentence.</span><span class="go">Open the page →</span></div></a><a class="card" href="counterspeech.html"><div class="shot"><picture><source srcset="img/counterspeech-dark.webp" media="(prefers-color-scheme: dark)"><img src="img/counterspeech-light.webp" alt="Preview of How platforms treat counterspeech" loading="lazy" width="1020" height="600"></picture></div><div class="ct"><span class="n">02</span><b>How platforms treat counterspeech</b><span>Where the rules make room for quoting, condemning and answering hate, and where they ask users to report it instead.</span><span class="go">Open the page →</span></div></a><a class="card" href="arena.html"><div class="shot"><picture><source srcset="img/arena-dark.webp" media="(prefers-color-scheme: dark)"><img src="img/arena-light.webp" alt="Preview of Moderation arena: would it stay up?" loading="lazy" width="1020" height="600"></picture></div><div class="ct"><span class="n">03</span><b>Moderation arena: would it stay up?</b><span>Test statements, and your own text, judged by an AI model against every version of each platform&#x27;s hate speech rule.</span><span class="go">Open the page →</span></div></a></nav>
+<nav class="cards" aria-label="The three pages"><a class="card" href="hate_definitions.html"><div class="shot"><picture><source srcset="img/hate_definitions-dark.webp" media="(prefers-color-scheme: dark)"><img src="img/hate_definitions-light.webp" alt="Preview of How platforms define hate" loading="lazy" width="1020" height="600"></picture></div><div class="ct"><span class="n">01</span><b>How platforms define hate</b><span>What nine platforms&#x27; rules count as hate speech, which groups they protect, and every change since 2022, sentence by sentence.</span><span class="go">Open the page →</span></div></a><a class="card" href="counterspeech.html"><div class="shot"><picture><source srcset="img/counterspeech-dark.webp" media="(prefers-color-scheme: dark)"><img src="img/counterspeech-light.webp" alt="Preview of How platforms treat counterspeech" loading="lazy" width="1020" height="600"></picture></div><div class="ct"><span class="n">02</span><b>How platforms treat counterspeech</b><span>Where the rules make room for quoting, condemning and answering hate, and where they ask users to report it instead.</span><span class="go">Open the page →</span></div></a><a class="card" href="arena.html"><div class="shot"><picture><source srcset="img/arena-dark.webp" media="(prefers-color-scheme: dark)"><img src="img/arena-light.webp" alt="Preview of Would it stay up?" loading="lazy" width="1020" height="600"></picture></div><div class="ct"><span class="n">03</span><b>Would it stay up?</b><span>Test statements, and your own text, judged by an AI model against every version of each platform&#x27;s hate speech rule.</span><span class="go">Open the page →</span></div></a></nav>
 <section class="about">
   <div><h2>The data</h2><p>Every archived version of each platform's Community Guidelines since 2022, from Open Terms Archive's
   <a href="https://github.com/OpenTermsArchive/pga-versions">Platform Governance Archive</a>, filled in with Wayback Machine captures where it has gaps.</p></div>
   <div><h2>What it shows</h2><p>The written rules, and how they changed. Not how the rules are enforced: what moderators and
   automated systems actually remove is a different question.</p></div>
-  <div><h2>The live judge</h2><p>The arena's "Write your own" box sends your text to a small Azure Function, which asks Zentropi's
-  CoPE model to apply the rules you picked. Nothing is stored.</p></div>
+  <div><h2>The live judge</h2><p>The arena's "Write your own" box sends your text through a small Azure Function, which stores
+  nothing, to Zentropi's CoPE model in the United States, under Zentropi's <a href="https://zentropi.ai/legal/privacy">privacy policy</a>.</p></div>
+  <div id="privacy"><h2>Privacy</h2><p>Visits are counted with Azure Application Insights: the page, the referring
+  site, the type of device and, from the IP address, the country and city. No cookies, nothing stored in your browser, no
+  IP addresses kept. Nothing is counted if your browser sends Do Not Track or Global Privacy Control.</p></div>
 </section>
 <footer><a href="https://simonkarg.github.io/">Simon Karg</a></footer>
 </main>
 
+
+<script>
+(() => {
+  const CS = "InstrumentationKey=4e86ea7f-41b3-462a-9a30-abd2c3bdaeec;IngestionEndpoint=https://swedencentral-0.in.applicationinsights.azure.com/;LiveEndpoint=https://swedencentral.livediagnostics.monitor.azure.com/;ApplicationId=652c226d-5dbb-424f-9253-1a395767fb6c", PAGE = "Platform Rules on Hate";
+  if (navigator.doNotTrack === "1" || navigator.globalPrivacyControl) return;
+  const kv = Object.fromEntries(CS.split(";").filter(Boolean).map(x => { const i = x.indexOf("=");
+    return [x.slice(0, i).trim().toLowerCase(), x.slice(i + 1).trim()]; }));
+  const key = kv.instrumentationkey; if (!key) return;
+  const url = (kv.ingestionendpoint || "https://dc.services.visualstudio.com/").replace(/\/?$/, "/") + "v2/track";
+  const ref = (() => { try { const r = new URL(document.referrer); return r.host === location.host ? "(this site)" : r.host; }
+    catch (e) { return "(none)"; } })();
+  const device = matchMedia("(max-width: 640px)").matches ? "phone" : matchMedia("(max-width: 1024px)").matches ? "tablet" : "desktop";
+  const send = (type, data) => {
+    const body = JSON.stringify([{ name: `Microsoft.ApplicationInsights.${key.replace(/-/g, "")}.${type}`, time: new Date().toISOString(),
+      iKey: key, tags: { "ai.operation.name": PAGE, "ai.device.type": "Browser", "ai.internal.sdkVersion": "pp-beacon:1" },
+      data: { baseType: type + "Data", baseData: Object.assign({ ver: 2 }, data) } }]);
+    try { fetch(url, { method: "POST", body, keepalive: true, headers: { "Content-Type": "application/json" } }).catch(() => {}); } catch (e) {}
+  };
+  send("Pageview", { name: PAGE, url: location.origin + location.pathname,
+    properties: { referrer: ref, device, language: (navigator.language || "").slice(0, 2) } });
+  addEventListener("pp:event", e => send("Event", { name: e.detail.name, properties: Object.assign({ page: PAGE }, e.detail.props || {}) }));
+})();
+</script>
 </body></html>

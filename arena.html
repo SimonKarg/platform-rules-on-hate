@@ -1,11 +1,21 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-D3mdlZM1Km63FqDTVRTtsK1Wf3/8a7DZ4Zj2oefTP2o=' 'sha256-cFs6LD45N+aAcm/EVeORjIJRI4JuWFWP+f9tBhCHwnU='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://pp-arena-judge-sk.azurewebsites.net https://swedencentral-0.in.applicationinsights.azure.com; base-uri 'none'; form-action 'self'; object-src 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Moderation Arena</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<title>Would it stay up? · Platform Rules on Hate</title>
+<meta name="description" content="Test statements, and your own text, judged by an AI model against every version of each platform&#x27;s hate speech rule.">
+<link rel="canonical" href="https://simonkarg.github.io/platform-rules-on-hate/arena.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Platform Rules on Hate">
+<meta property="og:title" content="Would it stay up?">
+<meta property="og:description" content="Test statements, and your own text, judged by an AI model against every version of each platform&#x27;s hate speech rule.">
+<meta property="og:url" content="https://simonkarg.github.io/platform-rules-on-hate/arena.html">
+<meta property="og:image" content="https://simonkarg.github.io/platform-rules-on-hate/img/og-arena.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Would it stay up?: a preview of the page">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="fonts/fonts.css">
 <style>
 /* A statement on top, nine platforms below it, then and now side by side. */
 :root {
@@ -37,8 +47,6 @@ p { margin: 0; max-width: 68ch; }
 a { color: inherit; text-decoration-color: var(--ink-3); text-underline-offset: 2px; }
 button { font-family: var(--sans); }
 button:focus-visible, a:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.notice { border: 1px solid var(--rule); border-left: 3px solid var(--unclear); background: var(--sheet); border-radius: 8px; padding: 12px 14px; font-size: 14px; color: var(--ink-2); }
-.notice b { color: var(--ink); }
 .disclaimer { margin: 14px 0 0; max-width: 72ch; font-size: 15px; color: var(--ink-2); border-left: 3px solid var(--ink); padding: 2px 0 2px 14px; }
 .disclaimer b { color: var(--ink); }
 
@@ -134,6 +142,7 @@ button:focus-visible, a:focus-visible, textarea:focus-visible { outline: 2px sol
 .own button.go:disabled { opacity: .45; cursor: default; }
 .own .count { font-family: var(--mono); font-size: 11.5px; color: var(--ink-3); }
 .own .err { font-size: 13px; color: var(--violates); }
+.own .wait { font-size: 13px; color: var(--ink-2); }
 .own textarea:enabled { color: var(--ink); }
 .vpick { display: grid; gap: 6px; }
 .vpick .vhead { font-size: 13px; color: var(--ink-2); }
@@ -152,8 +161,6 @@ button:focus-visible, a:focus-visible, textarea:focus-visible { outline: 2px sol
 .vpick .vclear { border: 0; background: none; padding: 0; font: 12.5px var(--sans); color: var(--ink-2); text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
 .vpick .vclear:disabled { opacity: .4; cursor: default; }
 .vpick .picked { font-family: var(--mono); font-size: 11.5px; color: var(--ink-2); }
-.cnote { border: 1px solid var(--rule); border-left: 3px solid var(--violates); background: var(--sheet); border-radius: 8px; padding: 12px 14px; font-size: 14px; color: var(--ink-2); }
-.cnote b { color: var(--ink); }
 
 /* the content note on the first visit: a card in front, the page blurred behind it */
 dialog.cn { border: 1px solid var(--rule); border-radius: 16px; background: var(--sheet); color: var(--ink); padding: 0;
@@ -212,14 +219,17 @@ body { margin: 0 !important; padding-top: 0 !important; }
   .pp-nav .pp-links a.pp-me { position: absolute; top: 10px; right: max(16px, env(safe-area-inset-right, 0px));
     margin: 0; padding: 2px 0; border: 0; font-size: 13px; }
 }
+.pp-privacy { max-width: 980px; margin: 32px auto 0; text-align: center; font: 12.5px/1.5 "IBM Plex Sans", system-ui, sans-serif; color: #6b717b; }
+.pp-privacy a { color: inherit; text-underline-offset: 2px; }
+@media (prefers-color-scheme: dark) { .pp-privacy { color: #8f95a0; } }
 </style>
 </head><body>
 <nav class="pp-nav" aria-label="Site"><div class="pp-in"><a class="pp-home" href="./">Platform Rules on Hate</a><div class="pp-links"><a href="hate_definitions.html">Defining hate</a><a href="counterspeech.html">Counterspeech</a><a href="arena.html" aria-current=page>Would it stay up?</a><a class="pp-me" href="https://simonkarg.github.io/">Simon Karg ↗</a></div></div></nav>
 <div class="wrap">
   <header>
-    <div class="eyebrow">Platform policies · Moderation arena</div>
+    <div class="eyebrow">Community Guidelines · 9 platforms · 2022⁠–⁠2026</div>
     <h1>Would it stay up?</h1>
-    <p class="dek">Pick a statement and see how nine platforms' written hate speech rules judge it, in every version of the rule since 2022.</p>
+    <p class="dek">Pick a statement and see how an AI model applies nine platforms' written hate speech rules to it, in every version of the rule since 2022.</p>
     <p class="disclaimer" role="note"><b>An AI model's reading of the written rules, not what platforms do.</b> Every verdict on this page is
     the interpretation of a policy-reading model, <a href="https://zentropi.ai/" target="_blank" rel="noopener">Zentropi</a>'s CoPE, applied to the text of a platform's Community Guidelines. It makes
     no claim about how any platform actually moderates: what its moderators and automated systems remove, restrict or leave up can
@@ -237,9 +247,6 @@ body { margin: 0 !important; padding-top: 0 !important; }
       <div class="cn-acts"><button class="cn-go" value="ok" autofocus>Continue to the arena</button><a class="cn-back" href="./">Back to the overview</a></div>
     </form>
   </dialog>
-  <div class="cnote" role="note"><b>Content note. </b>Some test statements on this page are hateful on purpose: dehumanising or derogatory claims about migrants, trans people, gay people, men and Dalits. They show where the rules draw their lines. Slurs are not spelled out.</div>
-
-  <div class="notice" id="notice"></div>
 
   <section class="picker" aria-label="Statements" id="picker"></section>
 
@@ -248,6 +255,7 @@ body { margin: 0 !important; padding-top: 0 !important; }
       <label for="own-text">Try your own text</label>
       <textarea id="own-text" maxlength="600" placeholder="Write a post, up to 600 characters"></textarea>
       <div style="display:flex;gap:10px;align-items:center"><button class="go" id="own-go" type="button">Judge it</button><span class="count" id="own-count"></span></div>
+      <p class="muted wait" id="own-wait" hidden>Waking up the judge. The first request after a quiet spell can take up to a minute.</p>
       <p class="err" id="own-err" hidden></p>
       <p class="muted" id="own-note"></p>
     </div>
@@ -269,7 +277,7 @@ body { margin: 0 !important; padding-top: 0 !important; }
     <h2 id="h-how">How the arena works</h2>
     <div class="how">
       <div class="step"><div class="n">1 · The rule</div><h3>Each platform's own words</h3><p>The hate speech rule as the archive captured it, verbatim, in every version that changed what it prohibits or allows: <span id="n-versions">29</span> versions across nine platforms. Truth Social has no hate rule, so its whole guidelines stand in.</p></div>
-      <div class="step"><div class="n">2 · The judge</div><h3>A policy-reading model</h3><p><a href="https://zentropi.ai/" target="_blank" rel="noopener">Zentropi</a>'s CoPE takes a policy written in plain language and a piece of content, and answers one yes-or-no question about it, with a confidence. Where a rule names lighter outcomes than removal, it is asked once per outcome: removal, reduced reach, a label.</p></div>
+      <div class="step"><div class="n">2 · The judge</div><h3>A policy-reading model</h3><p><a href="https://zentropi.ai/" target="_blank" rel="noopener">Zentropi</a>'s CoPE takes a policy written in plain language and a piece of content, and answers one yes-or-no question about it, with a confidence. Where a rule names lighter outcomes than removal (X, TikTok, LinkedIn and Truth Social), it is asked once per outcome: removal, reduced reach, a label. The most severe outcome that applies is shown.</p></div>
       <div class="step"><div class="n">3 · The comparison</div><h3>Same text, every version</h3><p>The statement is judged against each version separately. Where the verdict changes from one version to the next, the rule change made the difference.</p></div>
     </div>
     <ul class="caveats">
@@ -278,12 +286,13 @@ body { margin: 0 !important; padding-top: 0 !important; }
       <li>The statements are test cases. Some are hateful on purpose: they show where the rules draw their lines.</li>
       <li>Rewording, enforcement sections and page layout changes do not count as new versions. Each version's text is its last captured wording.</li>
       <li>The judge gets each rule in the structure of <a href="https://zentropi.ai/" target="_blank" rel="noopener">Zentropi</a>'s policy-writing guide, built from the rule's own sentences; only headings and criterion names are added. Rationale, enforcement and reporting passages are left out. Each outcome is a separate question to the model, because asking two at once shifted its answers.</li>
+      <li>Each verdict comes with the model's confidence. Below 65% it is marked borderline and shown as "Leans …". On the test statements with a known answer, most misses fall below that line; the exceptions are Snapchat's and TikTok's, in the next point.</li>
       <li>The judge makes mistakes on short, broadly worded rules. Snapchat bans content that "demeans, defames, or promotes discrimination" on the basis of religion or immigration status; read that way, its rules remove the statements criticising immigration policy (2022, 2024, March 2026) and a religion's teaching (2022), with up to 79% confidence. TikTok's 2023 rule removes the immigration policy statement at 73%. These statements were written to stay up; the rules give the model little to tell criticism of ideas or policies from attacks on people.</li>
-      <li>Text you type is sent to the judge and not stored. Do not enter personal information.</li>
+      <li>Text you type goes through a small server of ours, which stores nothing, to Zentropi in the United States, which handles it under its <a href="https://zentropi.ai/legal/privacy" target="_blank" rel="noopener">privacy policy</a>. Do not enter personal information.</li>
     </ul>
   </section>
 
-  <footer>Rules: Open Terms Archive, Platform Governance Archive (github.com/OpenTermsArchive/pga-versions). <a href="https://simonkarg.github.io/">Simon Karg</a>.</footer>
+  <footer>Rules: Open Terms Archive, <a href="https://github.com/OpenTermsArchive/pga-versions">Platform Governance Archive</a>. <a href="https://simonkarg.github.io/">Simon Karg</a>.</footer>
 </div>
 
 <script>
@@ -302,10 +311,6 @@ const T0 = Date.parse("2022-07-01"), T1 = Date.parse(DATA.today);
 const LOW = 0.65;          // below this confidence a verdict is shown as borderline: "leans ..."
 const low = v => v && v.confidence != null && v.confidence !== "" && +v.confidence < LOW;
 const pos = d => Math.max(0, Math.min(100, (Date.parse(d) - T0) / (T1 - T0) * 100));
-
-document.getElementById("notice").append(DATA.source === "draft"
-  ? el("span", {}, el("b", { text: "Prototype. " }), el("span", { text: "These verdicts are a first reading by Claude, an AI model, of the first and the current version of each rule. Versions in between are not judged yet. The live version replaces all of them with CoPE's verdicts and confidence, run on the same rule texts." }))
-  : el("span", {}, el("b", {}, "Verdicts by ", el("a", { href: "https://zentropi.ai/", target: "_blank", rel: "noopener", text: "Zentropi" }), " CoPE. "), el("span", { text: (OUTCOMES ? "Where a rule names lighter outcomes than removal (X, TikTok, LinkedIn, Truth Social), the model is asked separately whether the rule calls for removal, reduced reach or a label; the most severe outcome that applies is shown. " : "") + "Each verdict is the model's reading of the platform's written rule, one rule at a time, with its confidence. Below 65% a verdict is marked borderline: on the test statements with a known answer, every miss fell below that line." })));
 
 const OWN = { id: "own", label: "Your text", text: "", why: "Judged live against the rule versions you picked." };
 const MAX_RULES = 4;
@@ -437,24 +442,33 @@ const box = document.getElementById("own-text"), go = document.getElementById("o
 function count() { document.getElementById("own-count").textContent = box.value.length ? `${box.value.length}/600` : "";
   go.disabled = !DATA.endpoint || !box.value.trim() || !PICK.length; }
 if (DATA.endpoint) {
-  document.getElementById("own-note").textContent = `Your text is sent with the rules you picked (up to ${MAX_RULES}) to Zentropi's CoPE model, through a small server that holds the key. Nothing is stored.`;
+  document.getElementById("own-note").append("Your text and the rules you picked go through a small server of ours, which holds the key and stores nothing, to Zentropi's CoPE model in the United States, under Zentropi's ",
+    el("a", { href: "https://zentropi.ai/legal/privacy", target: "_blank", rel: "noopener", text: "privacy policy" }), ". Do not enter personal information.");
 } else {
   box.disabled = true; box.placeholder = "The live judge is not connected yet";
-  document.getElementById("own-note").textContent = "When it is, your text is sent with the rules you pick to the CoPE model through a small server, so no key sits in this page. Nothing is stored.";
+  document.getElementById("own-note").textContent = "When it is, your text goes through a small server of ours, which stores nothing, to Zentropi's CoPE model.";
 }
 box.addEventListener("input", count);
 renderPick();
 go.addEventListener("click", async () => {
   const text = box.value.trim(); if (!text || !PICK.length) return;
   go.disabled = true; go.textContent = `Judging ${PICK.length} rule${PICK.length > 1 ? "s" : ""}…`; err.hidden = true;
+  const wait = document.getElementById("own-wait"), slow = setTimeout(() => { wait.hidden = false; }, 5000);
+  const stop = new AbortController(), limit = setTimeout(() => stop.abort(), 120000);      // give up after two minutes
   try {
-    const r = await fetch(DATA.endpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ text, rules: PICK }) });
-    const out = await r.json();
+    let r, out;
+    try { r = await fetch(DATA.endpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ text, rules: PICK }), signal: stop.signal }); }
+    catch (e) { throw new Error(e.name === "AbortError" ? "The judge took too long. Try again in a minute." : "Could not reach the judge. Check your connection, or try again in a minute."); }
+    try { out = await r.json(); } catch (e) { throw new Error("The live judge is offline right now. The verdicts on the test statements still work."); }
     if (!r.ok) throw new Error(out.error || ("The judge answered " + r.status));
     for (const k of Object.keys(DATA.verdicts)) if (k.startsWith("own|")) delete DATA.verdicts[k];
     for (const x of out) DATA.verdicts["own|" + x.rule] = { verdict: x.verdict || (String(x.label) === "1" ? "violates" : "allowed"), confidence: x.confidence, reason: "" };
     OWN.text = text; CUR = "own"; OPEN = null; renderAll();
+    // for the visitor count (build_site.py): which platforms were picked, never the text
+    window.dispatchEvent(new CustomEvent("pp:event", { detail: { name: "judge", props: {
+      versions: String(PICK.length), platforms: [...new Set(PICK.map(k => k.split("|")[0]))].join(", ") } } }));
   } catch (e) { err.textContent = e.message || "The judge is unavailable. Try again in a minute."; err.hidden = false; }
+  clearTimeout(slow); clearTimeout(limit); wait.hidden = true;
   go.textContent = "Judge it"; count();
 });
 document.getElementById("n-versions").textContent = Object.values(DATA.versions).reduce((n, v) => n + v.length, 0);
@@ -466,11 +480,34 @@ renderAll();
 // windows, blocked site data) it shows on every visit.
 (() => {
   const d = document.getElementById("cn"), KEY = "pp-arena-content-note";
-  if (!d || typeof d.showModal !== "function") return;            // very old browsers: the inline note stays
+  if (!d || typeof d.showModal !== "function") return;            // very old browsers show the note's text in the page
   d.addEventListener("close", () => { try { localStorage.setItem(KEY, "seen"); } catch (e) {} });
   let seen = false; try { seen = localStorage.getItem(KEY) === "seen"; } catch (e) {}
   if (!seen) d.showModal();
 })();
 </script>
 
+<p class="pp-privacy">Visits are counted anonymously: no cookies, nothing stored in your browser, no IP addresses kept. <a href="./#privacy">Privacy</a></p>
+<script>
+(() => {
+  const CS = "InstrumentationKey=4e86ea7f-41b3-462a-9a30-abd2c3bdaeec;IngestionEndpoint=https://swedencentral-0.in.applicationinsights.azure.com/;LiveEndpoint=https://swedencentral.livediagnostics.monitor.azure.com/;ApplicationId=652c226d-5dbb-424f-9253-1a395767fb6c", PAGE = "Would it stay up?";
+  if (navigator.doNotTrack === "1" || navigator.globalPrivacyControl) return;
+  const kv = Object.fromEntries(CS.split(";").filter(Boolean).map(x => { const i = x.indexOf("=");
+    return [x.slice(0, i).trim().toLowerCase(), x.slice(i + 1).trim()]; }));
+  const key = kv.instrumentationkey; if (!key) return;
+  const url = (kv.ingestionendpoint || "https://dc.services.visualstudio.com/").replace(/\/?$/, "/") + "v2/track";
+  const ref = (() => { try { const r = new URL(document.referrer); return r.host === location.host ? "(this site)" : r.host; }
+    catch (e) { return "(none)"; } })();
+  const device = matchMedia("(max-width: 640px)").matches ? "phone" : matchMedia("(max-width: 1024px)").matches ? "tablet" : "desktop";
+  const send = (type, data) => {
+    const body = JSON.stringify([{ name: `Microsoft.ApplicationInsights.${key.replace(/-/g, "")}.${type}`, time: new Date().toISOString(),
+      iKey: key, tags: { "ai.operation.name": PAGE, "ai.device.type": "Browser", "ai.internal.sdkVersion": "pp-beacon:1" },
+      data: { baseType: type + "Data", baseData: Object.assign({ ver: 2 }, data) } }]);
+    try { fetch(url, { method: "POST", body, keepalive: true, headers: { "Content-Type": "application/json" } }).catch(() => {}); } catch (e) {}
+  };
+  send("Pageview", { name: PAGE, url: location.origin + location.pathname,
+    properties: { referrer: ref, device, language: (navigator.language || "").slice(0, 2) } });
+  addEventListener("pp:event", e => send("Event", { name: e.detail.name, properties: Object.assign({ page: PAGE }, e.detail.props || {}) }));
+})();
+</script>
 </body></html>

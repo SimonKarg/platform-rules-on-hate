@@ -1,11 +1,21 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-fPo0poE6tHHfWW5pl4RYS85fuJTxsI+7DUwVXPIsf9k=' 'sha256-k8UzynJ6y4a8wJcdH2sPRL+/sk6eC9q0Z0Wh4gq6Re8='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://pp-arena-judge-sk.azurewebsites.net https://swedencentral-0.in.applicationinsights.azure.com; base-uri 'none'; form-action 'self'; object-src 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>How Platforms Treat Counterspeech</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<title>How platforms treat counterspeech · Platform Rules on Hate</title>
+<meta name="description" content="Where the rules make room for quoting, condemning and answering hate, and where they ask users to report it instead.">
+<link rel="canonical" href="https://simonkarg.github.io/platform-rules-on-hate/counterspeech.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Platform Rules on Hate">
+<meta property="og:title" content="How platforms treat counterspeech">
+<meta property="og:description" content="Where the rules make room for quoting, condemning and answering hate, and where they ask users to report it instead.">
+<meta property="og:url" content="https://simonkarg.github.io/platform-rules-on-hate/counterspeech.html">
+<meta property="og:image" content="https://simonkarg.github.io/platform-rules-on-hate/img/og-counterspeech.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="How platforms treat counterspeech: a preview of the page">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="fonts/fonts.css">
 <style>
 /* One reading column; a figure table, finding cards, small multiples, then a platform explorer. */
 :root {
@@ -63,6 +73,13 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--allowed); outli
 .seg button { border: 0; background: none; padding: 5px 11px; font-size: 13px; color: var(--ink-2); cursor: pointer; }
 .seg button[aria-pressed="true"] { background: var(--ink); color: var(--sheet); }
 .tablebox { overflow-x: auto; background: var(--sheet); border: 1px solid var(--rule); border-radius: 10px; }
+.tablewrap { position: relative; display: grid; gap: 6px; }
+.tablewrap::after { content: ""; position: absolute; top: 1px; right: 1px; bottom: 1px; width: 40px; pointer-events: none; border-radius: 0 10px 10px 0;
+  background: linear-gradient(to right, transparent, var(--sheet)); opacity: 0; transition: opacity .2s; }
+.tablewrap.more::after { opacity: 1; }
+.tablewrap .swipe { order: -1; font-size: 13px; color: var(--ink-2); margin: 0; }
+.today th:first-child, .today td.p { position: sticky; left: 0; z-index: 1; background: var(--sheet); box-shadow: 1px 0 0 var(--rule); }
+.today tfoot td.p { background: var(--paper); }
 table.today { border-collapse: collapse; width: 100%; min-width: 680px; font-variant-numeric: tabular-nums; }
 .today th, .today td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--rule); vertical-align: middle; }
 .today tr:last-child td { border-bottom: 0; }
@@ -194,13 +211,16 @@ body { margin: 0 !important; padding-top: 0 !important; }
   .pp-nav .pp-links a.pp-me { position: absolute; top: 10px; right: max(16px, env(safe-area-inset-right, 0px));
     margin: 0; padding: 2px 0; border: 0; font-size: 13px; }
 }
+.pp-privacy { max-width: 980px; margin: 32px auto 0; text-align: center; font: 12.5px/1.5 "IBM Plex Sans", system-ui, sans-serif; color: #6b717b; }
+.pp-privacy a { color: inherit; text-underline-offset: 2px; }
+@media (prefers-color-scheme: dark) { .pp-privacy { color: #8f95a0; } }
 </style>
 </head><body>
 <nav class="pp-nav" aria-label="Site"><div class="pp-in"><a class="pp-home" href="./">Platform Rules on Hate</a><div class="pp-links"><a href="hate_definitions.html">Defining hate</a><a href="counterspeech.html" aria-current=page>Counterspeech</a><a href="arena.html">Would it stay up?</a><a class="pp-me" href="https://simonkarg.github.io/">Simon Karg ↗</a></div></div></nav>
 <div class="wrap">
   <header style="display:grid;gap:14px">
     <div>
-      <div class="eyebrow">Platform policies · Counterspeech in the rules</div>
+      <div class="eyebrow">Community Guidelines · 9 platforms · 2022⁠–⁠2026</div>
       <h1>How platforms treat counterspeech</h1>
       <p class="dek" id="dek">Counterspeech means answering hateful or harmful content with speech of your own: condemning it, correcting it, mocking it. We searched every sentence of nine platforms' Community Guidelines, 2022 to October 2026, for what they say about it.</p>
     </div>
@@ -212,7 +232,8 @@ body { margin: 0 !important; padding-top: 0 !important; }
       <h2 id="h-today">What the rules say today</h2>
       <p class="muted">Which of the nine platforms' Community Guidelines, as of October 2026, do each of these things. The small number is how many provisions do it (a list item with its sub-items, or a sentence in running text); Reporting is shown for comparison: it is the other way the rules ask users to act.</p>
     </div>
-    <div class="tablebox"><table class="today" id="today-table"></table></div>
+    <div class="tablewrap" id="today-wrap"><p class="swipe" id="today-swipe" hidden>Swipe the table sideways to see all columns →</p>
+      <div class="tablebox" id="today-box"><table class="today" id="today-table"></table></div></div>
     <div class="split-key" aria-label="What the carve-outs make room for"><span>Exempt, by what the carve-out makes room for:</span>
       <span><i style="background:var(--allowed)"></i>condemning or countering the harm, or siding with its victims</span>
       <span><i style="background:color-mix(in srgb, var(--allowed) 62%, var(--sheet))"></i>both</span>
@@ -299,7 +320,7 @@ body { margin: 0 !important; padding-top: 0 !important; }
     </ul>
   </section>
 
-  <footer id="foot">Data: Open Terms Archive, Platform Governance Archive (github.com/OpenTermsArchive/pga-versions). <a href="https://simonkarg.github.io/">Simon Karg</a>.</footer>
+  <footer id="foot">Data: Open Terms Archive, <a href="https://github.com/OpenTermsArchive/pga-versions">Platform Governance Archive</a>. <a href="https://simonkarg.github.io/">Simon Karg</a>.</footer>
 </div>
 <div class="tip" id="tip" hidden></div>
 
@@ -565,6 +586,37 @@ function renderPanel() {
 }
 renderTabs(); renderPanel();
 document.getElementById("foot").append(` Built ${fmtDay(DATA.generated)}.`);
+
+// Phones: the table is wider than the screen. Show the hint and fade the cut edge while columns are out of view.
+(() => {
+  const box = document.getElementById("today-box"), wrap = document.getElementById("today-wrap"), hint = document.getElementById("today-swipe");
+  const update = () => { const over = box.scrollWidth > box.clientWidth + 2;
+    hint.hidden = !over; wrap.classList.toggle("more", over && box.scrollLeft + box.clientWidth < box.scrollWidth - 2); };
+  box.addEventListener("scroll", update, { passive: true }); addEventListener("resize", update); update();
+})();
 </script>
 
+<p class="pp-privacy">Visits are counted anonymously: no cookies, nothing stored in your browser, no IP addresses kept. <a href="./#privacy">Privacy</a></p>
+<script>
+(() => {
+  const CS = "InstrumentationKey=4e86ea7f-41b3-462a-9a30-abd2c3bdaeec;IngestionEndpoint=https://swedencentral-0.in.applicationinsights.azure.com/;LiveEndpoint=https://swedencentral.livediagnostics.monitor.azure.com/;ApplicationId=652c226d-5dbb-424f-9253-1a395767fb6c", PAGE = "How platforms treat counterspeech";
+  if (navigator.doNotTrack === "1" || navigator.globalPrivacyControl) return;
+  const kv = Object.fromEntries(CS.split(";").filter(Boolean).map(x => { const i = x.indexOf("=");
+    return [x.slice(0, i).trim().toLowerCase(), x.slice(i + 1).trim()]; }));
+  const key = kv.instrumentationkey; if (!key) return;
+  const url = (kv.ingestionendpoint || "https://dc.services.visualstudio.com/").replace(/\/?$/, "/") + "v2/track";
+  const ref = (() => { try { const r = new URL(document.referrer); return r.host === location.host ? "(this site)" : r.host; }
+    catch (e) { return "(none)"; } })();
+  const device = matchMedia("(max-width: 640px)").matches ? "phone" : matchMedia("(max-width: 1024px)").matches ? "tablet" : "desktop";
+  const send = (type, data) => {
+    const body = JSON.stringify([{ name: `Microsoft.ApplicationInsights.${key.replace(/-/g, "")}.${type}`, time: new Date().toISOString(),
+      iKey: key, tags: { "ai.operation.name": PAGE, "ai.device.type": "Browser", "ai.internal.sdkVersion": "pp-beacon:1" },
+      data: { baseType: type + "Data", baseData: Object.assign({ ver: 2 }, data) } }]);
+    try { fetch(url, { method: "POST", body, keepalive: true, headers: { "Content-Type": "application/json" } }).catch(() => {}); } catch (e) {}
+  };
+  send("Pageview", { name: PAGE, url: location.origin + location.pathname,
+    properties: { referrer: ref, device, language: (navigator.language || "").slice(0, 2) } });
+  addEventListener("pp:event", e => send("Event", { name: e.detail.name, properties: Object.assign({ page: PAGE }, e.detail.props || {}) }));
+})();
+</script>
 </body></html>
