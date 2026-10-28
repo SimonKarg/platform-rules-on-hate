@@ -40,7 +40,7 @@
 body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 1.5;
   padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
   padding-block: 28px 56px; }
-.wrap { max-width: 940px; margin: 0 auto; display: grid; gap: 40px; }
+.wrap { max-width: 1080px; margin: 0 auto; display: grid; gap: 40px; }
 .eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-2); }
 h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(32px, 5.4vw, 48px); line-height: 1.06; margin: 6px 0 12px; text-wrap: balance; }
 h2 { font-family: var(--serif); font-weight: 600; font-size: 26px; line-height: 1.15; margin: 0; text-wrap: balance; }
@@ -194,7 +194,7 @@ body { margin: 0 !important; padding-top: 0 !important; }
   position: sticky; top: 0; z-index: 50; margin: 0 calc(50% - 50vw) 28px; background: var(--n-bg);
   border-bottom: 1px solid var(--n-rule); font: 500 14px/1.2 "IBM Plex Sans", system-ui, -apple-system, sans-serif; }
 @media (prefers-color-scheme: dark) { .pp-nav { --n-bg: #1b1f26; --n-ink: #e7e9ec; --n-ink2: #a2a8b3; --n-rule: #2e333c; --n-on: #e7e9ec; } }
-.pp-nav .pp-in { max-width: 1080px; margin: 0 auto; padding: 0 max(16px, env(safe-area-inset-left, 0px));
+.pp-nav .pp-in { max-width: 1112px; margin: 0 auto; padding: 0 max(16px, env(safe-area-inset-left, 0px));   /* 1080 + padding: lines up with the pages */
   display: flex; align-items: center; gap: 8px 24px; min-height: 52px; }
 .pp-nav a { color: var(--n-ink2); text-decoration: none; }
 .pp-nav .pp-home { color: var(--n-ink); font: 600 18px/1.1 Newsreader, Georgia, serif; white-space: nowrap; margin-right: auto; }
@@ -214,7 +214,7 @@ body { margin: 0 !important; padding-top: 0 !important; }
   .pp-nav .pp-links a.pp-me { position: absolute; top: 10px; right: max(16px, env(safe-area-inset-right, 0px));
     margin: 0; padding: 2px 0; border: 0; font-size: 13px; }
 }
-.pp-privacy { max-width: 980px; margin: 32px auto 0; text-align: center; font: 12.5px/1.5 "IBM Plex Sans", system-ui, sans-serif; color: #6b717b; }
+.pp-privacy { max-width: 1080px; margin: 32px auto 0; text-align: center; font: 12.5px/1.5 "IBM Plex Sans", system-ui, sans-serif; color: #6b717b; }
 .pp-privacy a { color: inherit; text-underline-offset: 2px; }
 @media (prefers-color-scheme: dark) { .pp-privacy { color: #8f95a0; } }
 </style>
