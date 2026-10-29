@@ -3,12 +3,12 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-sLiw4/C35bTuMMuhP58GywXRxWjBoM6W788Akjv48aw='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://pp-arena-judge-sk.azurewebsites.net https://swedencentral-0.in.applicationinsights.azure.com; base-uri 'none'; form-action 'self'; object-src 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Platform Rules on Hate</title>
-<meta name="description" content="How nine social media platforms write, and rewrite, their rules on hate speech: definitions, counterspeech, and what an AI model makes of every version since 2022.">
+<meta name="description" content="How nine social media platforms write, and rewrite, their rules: what they talk about, how they define hate, how they treat counterspeech, and what an AI model makes of every version since 2022.">
 <link rel="canonical" href="https://simonkarg.github.io/platform-rules-on-hate/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Platform Rules on Hate">
 <meta property="og:title" content="Platform Rules on Hate">
-<meta property="og:description" content="How nine social media platforms write, and rewrite, their rules on hate speech: definitions, counterspeech, and what an AI model makes of every version since 2022.">
+<meta property="og:description" content="How nine social media platforms write, and rewrite, their rules: what they talk about, how they define hate, how they treat counterspeech, and what an AI model makes of every version since 2022.">
 <meta property="og:url" content="https://simonkarg.github.io/platform-rules-on-hate/">
 <meta property="og:image" content="https://simonkarg.github.io/platform-rules-on-hate/img/og-index.jpg">
 <meta property="og:image:width" content="1200">
@@ -35,7 +35,7 @@ h1 { font: 600 clamp(34px, 6vw, 56px)/1.04 Newsreader, Georgia, serif; margin: 0
 .intro strong { color: var(--ink); font-weight: 600; }
 .platforms { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
 .platforms span { font-size: 13px; padding: 3px 10px; border-radius: 999px; background: var(--chip); color: var(--ink-2); }
-.cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
 @media (max-width: 900px) { .cards { grid-template-columns: minmax(0, 1fr); max-width: 620px; } }
 a.card { display: grid; grid-template-rows: auto 1fr; background: var(--sheet); border: 1px solid var(--rule); border-radius: 14px;
   overflow: hidden; color: inherit; text-decoration: none; transition: border-color .15s, transform .15s, box-shadow .15s; }
@@ -75,11 +75,13 @@ body { margin: 0 !important; padding-top: 0 !important; }
   padding-top: 8px; padding-bottom: 6px; margin-top: 8px; margin-bottom: 8px; font-weight: 400; }
 .pp-nav .pp-links a[aria-current="page"] { color: var(--n-on); border-bottom-color: var(--n-on); }
 .pp-nav a:focus-visible { outline: 2px solid #2a78d6; outline-offset: -2px; }
+.pp-nav .pp-short { display: none; }
 @media (max-width: 640px) {
   .pp-nav .pp-in { flex-wrap: wrap; gap: 0; padding-top: 10px; }
   .pp-nav .pp-home { width: 100%; font-size: 16px; }
   .pp-nav .pp-links { margin: 0 -10px; }
   .pp-nav .pp-links a { padding: 10px 10px 9px; font-size: 13.5px; }
+  .pp-nav .pp-long { display: none; } .pp-nav .pp-short { display: inline; }
   .pp-nav .pp-in { position: relative; }
   .pp-nav .pp-links a.pp-me { position: absolute; top: 10px; right: max(16px, env(safe-area-inset-right, 0px));
     margin: 0; padding: 2px 0; border: 0; font-size: 13px; }
@@ -89,7 +91,7 @@ body { margin: 0 !important; padding-top: 0 !important; }
 @media (prefers-color-scheme: dark) { .pp-privacy { color: #8f95a0; } }
 </style>
 </head><body>
-<nav class="pp-nav" aria-label="Site"><div class="pp-in"><a class="pp-home" href="./" aria-current="page">Platform Rules on Hate</a><div class="pp-links"><a href="hate_definitions.html">Defining hate</a><a href="counterspeech.html">Counterspeech</a><a href="arena.html">Would it stay up?</a><a class="pp-me" href="https://simonkarg.github.io/">Simon Karg ↗</a></div></div></nav>
+<nav class="pp-nav" aria-label="Site"><div class="pp-in"><a class="pp-home" href="./" aria-current="page">Platform Rules on Hate</a><div class="pp-links"><a href="topic_map.html" aria-label="Topic map"><span class="pp-long">Topic map</span><span class="pp-short" aria-hidden="true">Map</span></a><a href="hate_definitions.html" aria-label="Defining hate">Defining hate</a><a href="counterspeech.html" aria-label="Counterspeech">Counterspeech</a><a href="arena.html" aria-label="Would it stay up?"><span class="pp-long">Would it stay up?</span><span class="pp-short" aria-hidden="true">Stay up?</span></a><a class="pp-me" href="https://simonkarg.github.io/">Simon Karg ↗</a></div></div></nav>
 <main>
 <header class="hero">
   <div class="eyebrow">Community Guidelines · 9 platforms · 2022⁠–⁠2026</div>
@@ -118,16 +120,17 @@ body { margin: 0 !important; padding-top: 0 !important; }
 
 </p>
 <p>
-     The three pages look at the same rules from three angles:
+     The four pages look at the same rules from different angles:
 </p>
 <ol>
+     <li>a big picture overview over what's included in community guidelines</li>
      <li>how the rules define hate, whom they protect, and how this has changed over time</li>
      <li>how the rules talk about counterspeech</li>
      <li>how changing platform rules affect what is allowed and what is not</li>
 </ol></div>
   <div class="platforms" aria-label="Platforms"><span>Meta (Facebook, Instagram)</span><span>YouTube</span><span>TikTok</span><span>X</span><span>Reddit</span><span>Snapchat</span><span>LinkedIn</span><span>Bluesky</span><span>Truth Social</span></div>
 </header>
-<nav class="cards" aria-label="The three pages"><a class="card" href="hate_definitions.html"><div class="shot"><picture><source srcset="img/hate_definitions-dark.webp" media="(prefers-color-scheme: dark)"><img src="img/hate_definitions-light.webp" alt="Preview of How platforms define hate" loading="lazy" width="1020" height="600"></picture></div><div class="ct"><span class="n">01</span><b>How platforms define hate</b><span>What nine platforms&#x27; rules count as hate speech, which groups they protect, and every change since 2022, sentence by sentence.</span><span class="go">Open the page →</span></div></a><a class="card" href="counterspeech.html"><div class="shot"><picture><source srcset="img/counterspeech-dark.webp" media="(prefers-color-scheme: dark)"><img src="img/counterspeech-light.webp" alt="Preview of How platforms treat counterspeech" loading="lazy" width="1020" height="600"></picture></div><div class="ct"><span class="n">02</span><b>How platforms treat counterspeech</b><span>Where the rules make room for quoting, condemning and answering hate, and where they ask users to report it instead.</span><span class="go">Open the page →</span></div></a><a class="card" href="arena.html"><div class="shot"><picture><source srcset="img/arena-dark.webp" media="(prefers-color-scheme: dark)"><img src="img/arena-light.webp" alt="Preview of Would it stay up?" loading="lazy" width="1020" height="600"></picture></div><div class="ct"><span class="n">03</span><b>Would it stay up?</b><span>Test statements, and your own text, judged by an AI model against every version of each platform&#x27;s hate speech rule.</span><span class="go">Open the page →</span></div></a></nav>
+<nav class="cards" aria-label="The three pages"><a class="card" href="topic_map.html"><div class="shot"><picture><source srcset="img/topic_map-dark.webp" media="(prefers-color-scheme: dark)"><img src="img/topic_map-light.webp" alt="Preview of What community guidelines talk about" loading="lazy" width="1020" height="600"></picture></div><div class="ct"><span class="n">01</span><b>What community guidelines talk about</b><span>Every passage of nine platforms&#x27; rules since 2022 on one map, placed by meaning. Point at a dot to read it.</span><span class="go">Open the page →</span></div></a><a class="card" href="hate_definitions.html"><div class="shot"><picture><source srcset="img/hate_definitions-dark.webp" media="(prefers-color-scheme: dark)"><img src="img/hate_definitions-light.webp" alt="Preview of How platforms define hate" loading="lazy" width="1020" height="600"></picture></div><div class="ct"><span class="n">02</span><b>How platforms define hate</b><span>What nine platforms&#x27; rules count as hate speech, which groups they protect, and every change since 2022, sentence by sentence.</span><span class="go">Open the page →</span></div></a><a class="card" href="counterspeech.html"><div class="shot"><picture><source srcset="img/counterspeech-dark.webp" media="(prefers-color-scheme: dark)"><img src="img/counterspeech-light.webp" alt="Preview of How platforms treat counterspeech" loading="lazy" width="1020" height="600"></picture></div><div class="ct"><span class="n">03</span><b>How platforms treat counterspeech</b><span>Where the rules make room for quoting, condemning and answering hate, and where they ask users to report it instead.</span><span class="go">Open the page →</span></div></a><a class="card" href="arena.html"><div class="shot"><picture><source srcset="img/arena-dark.webp" media="(prefers-color-scheme: dark)"><img src="img/arena-light.webp" alt="Preview of Would it stay up?" loading="lazy" width="1020" height="600"></picture></div><div class="ct"><span class="n">04</span><b>Would it stay up?</b><span>Test statements, and your own text, judged by an AI model against every version of each platform&#x27;s hate speech rule.</span><span class="go">Open the page →</span></div></a></nav>
 <section class="about">
   <div><h2>The data</h2><p>Every archived version of each platform's Community Guidelines since 2022, from Open Terms Archive's
   <a href="https://github.com/OpenTermsArchive/pga-versions">Platform Governance Archive</a>, filled in with Wayback Machine captures where it has gaps.</p></div>

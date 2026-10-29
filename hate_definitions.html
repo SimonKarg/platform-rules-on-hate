@@ -242,11 +242,13 @@ body { margin: 0 !important; padding-top: 0 !important; }
   padding-top: 8px; padding-bottom: 6px; margin-top: 8px; margin-bottom: 8px; font-weight: 400; }
 .pp-nav .pp-links a[aria-current="page"] { color: var(--n-on); border-bottom-color: var(--n-on); }
 .pp-nav a:focus-visible { outline: 2px solid #2a78d6; outline-offset: -2px; }
+.pp-nav .pp-short { display: none; }
 @media (max-width: 640px) {
   .pp-nav .pp-in { flex-wrap: wrap; gap: 0; padding-top: 10px; }
   .pp-nav .pp-home { width: 100%; font-size: 16px; }
   .pp-nav .pp-links { margin: 0 -10px; }
   .pp-nav .pp-links a { padding: 10px 10px 9px; font-size: 13.5px; }
+  .pp-nav .pp-long { display: none; } .pp-nav .pp-short { display: inline; }
   .pp-nav .pp-in { position: relative; }
   .pp-nav .pp-links a.pp-me { position: absolute; top: 10px; right: max(16px, env(safe-area-inset-right, 0px));
     margin: 0; padding: 2px 0; border: 0; font-size: 13px; }
@@ -256,7 +258,7 @@ body { margin: 0 !important; padding-top: 0 !important; }
 @media (prefers-color-scheme: dark) { .pp-privacy { color: #8f95a0; } }
 </style>
 </head><body>
-<nav class="pp-nav" aria-label="Site"><div class="pp-in"><a class="pp-home" href="./">Platform Rules on Hate</a><div class="pp-links"><a href="hate_definitions.html" aria-current=page>Defining hate</a><a href="counterspeech.html">Counterspeech</a><a href="arena.html">Would it stay up?</a><a class="pp-me" href="https://simonkarg.github.io/">Simon Karg ↗</a></div></div></nav>
+<nav class="pp-nav" aria-label="Site"><div class="pp-in"><a class="pp-home" href="./">Platform Rules on Hate</a><div class="pp-links"><a href="topic_map.html" aria-label="Topic map"><span class="pp-long">Topic map</span><span class="pp-short" aria-hidden="true">Map</span></a><a href="hate_definitions.html" aria-current=page aria-label="Defining hate">Defining hate</a><a href="counterspeech.html" aria-label="Counterspeech">Counterspeech</a><a href="arena.html" aria-label="Would it stay up?"><span class="pp-long">Would it stay up?</span><span class="pp-short" aria-hidden="true">Stay up?</span></a><a class="pp-me" href="https://simonkarg.github.io/">Simon Karg ↗</a></div></div></nav>
 <div class="wrap">
   <header>
     <div class="eyebrow">Community Guidelines · 9 platforms · 2022⁠–⁠2026</div>
